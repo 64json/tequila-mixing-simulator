@@ -109,6 +109,10 @@
     align-items: stretch;
 }
 
+button {
+    height: 40px;
+}
+
 .pipe {
     position: absolute;
     height: 64px;

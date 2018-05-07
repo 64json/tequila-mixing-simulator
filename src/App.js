@@ -217,11 +217,19 @@ class App extends Component {
   }
 
   animate() {
-    this.t = 0;
+    this.reset();
     this.timer = window.setInterval(() => {
-      this.t += .1;
+      this.t += .05;
       this.forceUpdate();
-    }, 100);
+    }, 50);
+  }
+
+  reset() {
+    if (this.timer) {
+      window.clearInterval(this.timer);
+    }
+    this.t = 0;
+    this.forceUpdate();
   }
 
   render() {
@@ -338,6 +346,7 @@ class App extends Component {
           <div className="foreground">
             <div className="controller">
               <button onClick={() => this.animate()}>Animate</button>
+              <button onClick={() => this.reset()}>Reset</button>
             </div>
             {
               this.pipes.map(pipe => {
